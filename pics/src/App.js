@@ -21,6 +21,6 @@ export default App;
 //so the main thing is "handleSubmit" will be pass down as a PROP VALUE in the CHILD(SearchBar) and that is what we want
 //so the "handleSubmit" will go to child and will bring the "TERM" in the "PARENT"
 
-//===>SUMMERY so in simple words "handleSubmit" function will go to child by props and will come back with TERM by EVENTHANDLER of button
+//===>SUMMERY so in simple words "handleSubmit" function will go to child by props and will come back with TERM by EVENTHANDLER of button or ENTER
 
 //as we can see that in SearchBar.js we have OnClick function "handleClick" so it will run our prop "OnSubmit" in that
