@@ -1,9 +1,11 @@
 import SearchBar from './components/Searchbar';
+import searchImages from './api';
 
 function App(){
 
-const handleSubmit=(term)=>{
-  console.log('do a search with',term);
+const handleSubmit=async (term)=>{
+ const result =await searchImages(term);
+ console.log(result)
 }
 
   return <div><SearchBar onSubmit={handleSubmit}/></div>
@@ -24,3 +26,6 @@ export default App;
 //===>SUMMERY so in simple words "handleSubmit" function will go to child by props and will come back with TERM by EVENTHANDLER of button or ENTER
 
 //as we can see that in SearchBar.js we have OnClick function "handleClick" so it will run our prop "OnSubmit" in that
+
+//2... now we will use "Async & Await" in "Handle submit" bcse there is possibilty that we can get responce late and
+// JS will compile way before so we tell js that wait till the responce come back
