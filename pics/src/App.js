@@ -1,14 +1,28 @@
+import { useState } from 'react';
+
+
+import ImageList from './components/imageList';
 import SearchBar from './components/Searchbar';
 import searchImages from './api';
 
 function App(){
 
+//this below state is for the Imagelist so we can make changes OnScreen by Use the images that we fetch from the Api
+
+const [images,setImages]=useState([]);
+
+
+
+
 const handleSubmit=async (term)=>{
  const result =await searchImages(term);
- console.log(result)
+ setImages(result);
 }
 
-  return <div><SearchBar onSubmit={handleSubmit}/></div>
+  return <div>
+    <SearchBar onSubmit={handleSubmit}/>
+    <ImageList images={images}/>
+  </div>
 };
 
 export default App;
