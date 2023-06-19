@@ -14,14 +14,17 @@ const handleChange=(event)=>{
 const handleSubmit=(event)=>{
 event.preventDefault();
 onCreate(title);
+setTitle('');//this will empty the Input after we hit the submit Button so we easily add new book   
 };
 
 
-    return <div><form onSubmit={handleSubmit}>
+    return <div className="book-create">
+        <h3>Add a Book</h3>
+        <form onSubmit={handleSubmit}>
         <label>Enter a Title</label >
-        <input value={title} onChange={handleChange}/>
-        <button>Create!</button>
-        </form></div>
+        <input className="input" value={title} onChange={handleChange}/>
+        <button className="button">Create!</button>
+        </form></div>   
 }
 
 export default BookCreate;
