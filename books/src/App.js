@@ -1,34 +1,34 @@
-import { useState } from "react";
+import { useEffect,useContext } from "react";
+
 import BookCreate from './components/BookCreate';
 import BookList from './components/BookList';
+import BooksContext from "./context/book";
 
 function App(){
 
-    const [books,setBooks]=useState([]);
 
-    const CreateBook=(title)=>{
-          //=====Bad Code for the Updating Array,Objects etc ===============
+   const {fetchBooks}= useContext(BooksContext);//so this will alow to access fetchbooks in the object in the provider file
+   
 
-        // books.push({id:123,title:title});
-        // console.log(books);
-        // setBooks(books);        explaination of this is in the notes
-    
 
-    //===============GOOOD CODE=======================
+//the below code is of the useEffect wich is help us to load fetchbooks only when the page is loaded or reload
+useEffect(()=>{
+    fetchBooks()//this fetchbooks will go to context file and access the fetchbooks function
+},[]) //now even if you reload the website your books will remain same
 
-    const UpdatedBooks=[...books,{id:Math.round(Math.random()*9999),title:title}];
-    setBooks(UpdatedBooks);
-//this code is good bcse this will make change in the new array and we have used "Destructuring" to copy array 
-//so this method is used in the 'UseState' to upadate the array and Objects
-//so React find that completely diff. arrays so it will make change to the screen bu "STATE";
 
- 
-    }
+
+
+
+
 
     return <div className="app">
-        <BookList books={books}/>
-        <BookCreate onCreate={CreateBook}/>       
+        <h1>Reading List</h1>
+        <BookList  />   
+        <BookCreate  />       
     </div>
 }
+/* <BookList  onEdit={editBookById} books={books}  onDelete={deleteBookById}/>    */
+/* <BookCreate onCreate={CreateBook} /> */
 
 export default App;

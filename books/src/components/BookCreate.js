@@ -1,11 +1,16 @@
-import { eventWrapper } from "@testing-library/user-event/dist/utils";
-import { useState } from "react";
-function BookCreate({onCreate}){
+
+import { useState,useContext } from "react";
+import BooksContext from "../context/book"; 
+
+function BookCreate(){
+
 
 //this component will used to create a new book and we will treat as search bar in prev. project bcse it also component of
 //form
 
 const [title,setTitle]=useState('');
+
+const {createBook}=useContext(BooksContext);
 
 const handleChange=(event)=>{
     setTitle(event.target.value);
@@ -13,7 +18,7 @@ const handleChange=(event)=>{
 
 const handleSubmit=(event)=>{
 event.preventDefault();
-onCreate(title);
+createBook(title);
 setTitle('');//this will empty the Input after we hit the submit Button so we easily add new book   
 };
 
