@@ -10,9 +10,13 @@ const handleClick=()=>{
     setShowModal(true);
 }
 
-return (<div>
+const handleClose=()=>{
+    setShowModal(false);
+}
+
+return (<div className="relative">
     <Button onClick={handleClick} primery>Open Modal</Button>
-     {showModal && <Modal/>}
+     {showModal && <Modal onClose={handleClose}/>}
 </div>)
 }
 export default ModalPage;
