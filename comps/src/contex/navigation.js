@@ -1,9 +1,6 @@
 import { useState, createContext, useEffect } from "react";
 //this is a contex file which is made bcse of we would provide path to all the files 
 
-
-
-
 const NavigationContext=createContext();
 
 const NavigationProvider=({children})=>{
